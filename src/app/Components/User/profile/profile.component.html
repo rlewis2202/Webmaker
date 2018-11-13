@@ -1,28 +1,43 @@
 <p>
-  profile works!
-</p>
-<form>
-  <strong><label>Username</label></strong>           
-  <br> 
-  <input type="text" name="username" required>      
-   <br> 
-   <br>
-   <strong><label>Email</label></strong>          
-   <br>            
-   <input type="email" name="email">     
-   <br>
-   <br>                   
-    <strong><label>First Name</label></strong>             
-   <br>            
-   <input type="text" name="First Name"> 
-    <br>
-    <br> 
-   <strong><label>Last Name</label></strong> 
-   <br>
-    <input type="text" name="Last Name">
-   </form>    
+  
+</p>     
+              <!-- Navbard-->
+        <nav class="navbar navbar-dark bg-primary fixed-top">
+           <a class="navbar-brand" routerLink="/user/:uid"><b>Profile</b></a> 
+           <a class="color-white" routerLink="/user/:uid"><i class="fas fa-check"></i></a>
+        </nav>
+  <form>
+         <br>            
+      <div class="form-group">
+         <strong><label>Username</label></strong>           
+         <br>         
+         <input type="text" name="username" required>      
+         <br>          
+         <strong><label>Email</label></strong>          
+         <br>                   
+         <input type="email" name="email">     
+         <br>
+         <br>                   
+         <strong><label>First Name</label></strong>             
+         <br>                   
+         <input type="text" name="first name"> 
+         <br>         
+         <strong><label>Last Name</label></strong> 
+         <br>
+         <input type="text" name="last name">   
+         <br>
+         <br>
+         <br>
 
-    <br>
-    
-<button class="button">Websites</button>
-<button class="button button1">Logout</button>
+           <a routerLink="/user/:uid/website" class="btn btn-primary btn-block">Websites</a> 
+           <a routerLink="/login" class="btn btn-danger btn-block">Logout</a> 
+      </div>
+  </form>  
+          <!-- Footer -->
+    <footer>
+        <nav class="navbar navbar-dark bg-primary fixed-bottom">
+          <div class="full-width">
+           <a class="color-white float-right" routerLink="/user/:uid"><i class="fas fa-user"></i></a>
+          </div>
+        </nav>  
+    </footer> 

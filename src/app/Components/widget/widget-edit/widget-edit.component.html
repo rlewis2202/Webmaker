@@ -1,3 +1,18 @@
 <p>
   widget-edit works!
 </p>
+           <!-- navbar -->
+        <nav class="navbar navbar-dark bg-primary fixed-top row nav-height">
+           <!-- Left Nav -->
+          <div class="col-4 d-none d-sm-block">
+            <a class="color-white" routerLink=""><i class="fas fa-chevron-left"></i></a>
+            <a class="color-white padding-left"><h5 class="display-inline"></h5></a>
+            <a class="color-white float-right"><i class="fas fa-plus"></i></a>
+          </div>        
+          <!-- Right Nav -->
+          <div class="col-sm-8">
+            <a class="color-white d-sm-none"><i class="fas fa-chevron-left"></i></a>
+            <a class="color-white padding-left"><h5 class="display-inline">Edit Website</h5></a>
+            <a class="color-white float-right" routerLink="/user/:uid/website:wid"><i class="fas fa check"></i></a>
+          </div>
+        </nav>

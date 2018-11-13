@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { Routing } from './app.routing';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/User/login/login.component';
@@ -17,8 +20,13 @@ import { WidgetImageComponent } from './Components/widget/widget-edit/widget-ima
 import { WidgetChooserComponent } from './Components/widget/widget-chooser/widget-chooser.component';
 import { WidgetYoutubeComponent } from './Components/widget/widget-edit/widget-youtube/widget-youtube.component';
 import { WidgetEditComponent } from './Components/widget/widget-edit/widget-edit.component';
+import { UserService } from './services/user.service.client';
+import { WebsiteService } from './services/website.service.client';
+import { PageService } from './services/page.service.client';
+import { WidgetService } from './services/widget.service.client';
 
-@NgModule({
+
+@NgModule ({
   declarations: [
     AppComponent,
     LoginComponent,
@@ -37,10 +45,11 @@ import { WidgetEditComponent } from './Components/widget/widget-edit/widget-edit
     WidgetYoutubeComponent,
     WidgetEditComponent
   ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+
+       imports: [BrowserModule, Routing,],
+
+     providers: [UserService, WebsiteService, 
+      PageService, WidgetService],
+     bootstrap: [AppComponent]
+  })
 export class AppModule { }

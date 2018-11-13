@@ -1,21 +1,20 @@
 <p>
-  register works!
+  
 </p>
-<h1 style="background-color:tomato;">Register</h1>           
-
-<!-- Forms -->
-<form action="process.php" Method="get">
-<form>
-<input type="text" name="username" value="username";> 
-<br>
-<br>                
-<input type="text" name="password" value="Password";>
-<br>
-<br>              
-<input type="text" name="verify password" value="verify Password";>
-</form> 
-
-
-<button class="button">Register</button>
-
-<button class="button button1">Cancel</button>     
+<div>
+    <form>
+          <div class="form-group"> 
+            <input class="form-control" type="text" placeholder="username">
+             <br>
+             <br>
+             <input class="form-control" type="password" placeholder="password">            
+             <br>
+             <br> 
+             <input class="form-control" type="password" placeholder="verify password">
+   
+             <a routerLink="/user/:uid" class="btn btn-primary btn-block">Register</a>
+             <br>           
+            <a routerLink="/login" class="btn btn-danger btn-block">Cancel</a> 
+          </div>
+    </form>
+</div>

@@ -1,19 +1,17 @@
 <p>
-  login works!
+  
 </p>
-<h1 style="background-color:tomato;">Login</h1>
-                    <!-- Forms -->
-     
-    <form action="/action_page.php" method="get">
-     <form>
-     <input type="text" name="Username" value="Username";>
-    <br>       
-    <br>
-     <input type="text" name="Password" value="Password";> 
-     </form>
-        <br>
-        <br>      
-      <button class="button">Login</button>
-         <br>
-         <br>
-      <button class="button button1">Register</button>  
+     <h1>Login</h1>
+  <div>
+        <form>
+             <div class="form-group">
+               <input class="form-control" type="text" placeholder="Username"> 
+               <br>            
+               <input class="form-control" type="password" placeholder="Password">               
+             </div> 
+           <a routerLink="/User/:uid" class="btn btn-primary btn-block">Login</a>
+             <br>
+             <br>
+           <a routerLink="/register" class="btn btn-success btn-block">Register</a> 
+        </form>    
+  </div>
