@@ -21,19 +21,19 @@ import { WidgetEditComponent } from "./Components/widget/widget-edit/widget-edit
 
 const APP_ROUTES : Routes = [
 
-  { path : '', component: LoginComponent },
- { path : 'login' , component: LoginComponent },
- { path : 'register' , component: RegisterComponent },
- { path : 'user/:userId' , component: ProfileComponent },
- { path : 'user/:userId/website' , component: WebsiteListComponent },
- { path : 'user/:userId/website/new' , component: WebsiteNewComponent },
- { path : 'user/:userId/website/:wid' , component: WebsiteEditComponent },
- { path : 'user/:userId/website/:wid/page', component: PageListComponent },
- { path : 'user/:userId/website/:wid/page/new', component: PageNewComponent },
- { path : 'user/:userId/website/:wid/page/:pid', component: PageEditComponent },
- { path : 'user/:userId/website/:wid/page/:pid/widget', component: WidgetListComponent },
- { path : 'user/:userId/website/:wid/page/:pid/widget/new', component: WidgetChooserComponent },
- { path : 'user/:userId/website/:wid/page/:pid/widget/:wgid', component: WidgetEditComponent },
+  { path : "", component: LoginComponent },
+ { path : "login" , component: LoginComponent },
+ { path : "register" , component: RegisterComponent },
+ { path : "User/:userId" , component: ProfileComponent },
+ { path : "User/:userId/website" , component: WebsiteListComponent },
+ { path : "User/:userId/website/new" , component: WebsiteNewComponent },
+ { path : "User/:userId/website/:wid" , component: WebsiteEditComponent },
+ { path : "User/:userId/website/:wid/page", component: PageListComponent },
+ { path : "User/:userId/website/:wid/page/new", component: PageNewComponent },
+ { path : "User/:userId/website/:wid/page/:pid", component: PageEditComponent },
+ { path : "User/:userId/website/:wid/page/:pid/widget", component: WidgetListComponent },
+ { path : "User/:userId/website/:wid/page/:pid/widget/new", component: WidgetChooserComponent },
+ { path : "User/:userId/website/:wid/page/:pid/widget/:wgid", component: WidgetEditComponent },
  // so on
 
 ];
