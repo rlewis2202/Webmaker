@@ -6,14 +6,14 @@
          <br><br>    
     <div class="container"> 
       <form #myForm="ngForm" (ngSubmit)="update()" id="myForm"> 
-          <div class="form-group"> 
-            <div class="alert alert-danger">This username is taken, please try another one</div>
-             <strong><label>UserName</label></strong> 
-            <div *ngIf="successFlag" class="alert alert-success">Update Successfully</div>          
-            <br>         
-            <input #userInput="ngModel" type="text" required name="UserName" [(ngModel)]="User.UserName" placeholder="Enter Username...">      
-            <br>
+          <div class="form-group">
             <div *ngIf="userInput.invalid" class="alert alert-warning">Username can't be empty</div>          
+            <div *ngIf="successFlag" class="alert alert-success">Update Successfully</div>
+             <strong><label>UserName</label></strong>                    
+            <br>         
+            <input #userInput="ngModel" type="text" required name="UserName" [(ngModel)]="User.UserName" placeholder="Enter Username...">
+            <div class="alert alert-danger">This username is taken, please try another one</div>            
+            <br>
             <strong><label>Email</label></strong>          
             <br>                   
             <input type="email" name="email" [(ngModel)]="User.email" placeholder="Enter Email...">     
