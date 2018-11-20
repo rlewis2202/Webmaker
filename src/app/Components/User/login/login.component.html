@@ -1,17 +1,26 @@
 <p>
   one
 </p>
-     <h1>Login</h1>
-  <div>
-        <form>
-             <div class="form-group">
-               <input class="form-control" type="text" placeholder="Username"> 
-               <br>            
-               <input class="form-control" type="password" placeholder="Password">               
-             </div> 
-           <a routerLink="/User/:uid" class="btn btn-primary btn-block">Login</a>
-             <br>
-             <br>
-           <a routerLink="/register" class="btn btn-success btn-block">Register</a> 
-        </form>    
-  </div>
+     <h1>Login</h1>   
+      <form (ngSubmit)="login()" #myForm="ngForm">
+              <div class="form-group">
+                 <input class="form-control" name="UserName" [(ngModel)]="User.UserName" type="text" placeholder="UserName...">
+                  <br> 
+                  <div class="alert alert-warning">Please Enter UserName</div> 
+              </div>           
+              <br>              
+              <div class="form-group">
+                <input class="form-control" name="password" [(ngModel)]="User.password" type="password" 
+                 placeholder="password...">
+                 <br>
+                 <br>
+                 <div class="alert alert-warning">Please Enter Password</div>
+                 <br>                         
+                   <button type="submit" class="btn btn-primary btn-block">Login</button>
+                   <br>                                  
+                   <a routerLink="/register" class="btn btn-success btn-block">Register</a> 
+              </div>
+      </form>
+          
+        
+  
