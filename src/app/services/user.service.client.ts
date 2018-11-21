@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 export class UserService
 { constructor() {}
      User = 
-   [{
+   [{ 
       _id: "123", UserName: "alice", password: "alice", firstName: "Alice",
         lastName: "Wonder", email: "alice@gmail.com"
     },    

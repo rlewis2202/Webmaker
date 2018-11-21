@@ -1,18 +1,17 @@
 <p>  three </p>  
         <nav class="navbar navbar-dark bg-primary fixed-top">
-            <a class="navbar-brand" routerLink="/User/{{uid}}"><b>Profile</b></a> 
-            <a routerLink="/User/:uid" class="color-white" type="submit"
-             form="myForm"><i class="fas fa-check"></i></a>
+            <a routerLink="/User/{{uid}}" class="navbar-brand"><b>Profile</b></a> 
+            <a routerLink="/User/{{uid}}" class="btn bg-transparent color-white" type="submit"><i class="fas fa-check"></i></a>
         </nav>  
-         <br><br>    
+         <br><br>      
     <div class="container"> 
-      <form #myForm="ngForm" (ngSubmit)="update()" id="myForm"> 
+      <form> 
           <div class="form-group">
-           <!-- <div *ngIf="userInput.invalid" class="alert alert-warning">Username can't be empty</div> -->           
+            <!-- <div *ngIf="userInput.invalid" class="alert alert-warning">Username can't be empty</div> -->           
            <!-- <div *ngIf="successFlag" class="alert alert-success">Update Successfully</div> -->
              <strong><label>UserName</label></strong>                    
             <br>         
-            <input #userInput="ngModel" type="text" name="UserName"
+            <input #userInput="ngModel" name="User.UserName" type="text"
               [(ngModel)]="User.UserName" placeholder="Enter Username...">
             <!--<div class="alert alert-danger">This username is taken, please try another one</div> -->           
             <br>
@@ -33,9 +32,11 @@
               <a routerLink="/User/{{uid}}/website" class="btn btn-primary btn-block">Websites</a> 
               <a routerLink="/login" class="btn btn-danger btn-block">Logout</a> 
           </div>
-  </form>           
+       </form>  
+    </div>         
       <footer>
         <nav class="navbar navbar-dark bg-primary fixed-bottom full-width" >        
            <a routerLink="/User/{{uid}}" class="color-white float-right"><i class="fas fa-user"></i></a>
         </nav> 
-      </footer>  
+      </footer> 
+     <!-- #myForm="ngForm" (ngSubmit)="update()" id="myForm"> -->

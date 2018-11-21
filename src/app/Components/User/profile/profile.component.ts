@@ -1,18 +1,23 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { UserService } from "src/app/services/User.service.client";
+
    @Component({
      selector: "app-profile",
      templateUrl: "./profile.component.html",
      styleUrls: ["./profile.component.css"]
   })
     export class ProfileComponent implements OnInit {
-      constructor(private activatedRoute: ActivatedRoute, private userService: UserService) {}      
+      constructor(private activatedRoute: ActivatedRoute, private userService: UserService) {} 
+      User: any = {
+        UserName: "",
+        password: ""     
+      };   
       uid: string;
-      User; 
-      UserName: string;
-      password: string;             
-      oldUserName: string;
+      //User; 
+     // UserName: string;
+     // password: string;             
+      oldUserName: string; 
       userError: boolean;  
       successFlag: boolean;        
         ngOnInit() {
@@ -37,5 +42,4 @@ import { UserService } from "src/app/services/User.service.client";
              this.successFlag = false; 
              this.userService.updateUser(this.User);
            }
-        } }
-      } 
+        } }      } 
