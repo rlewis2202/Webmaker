@@ -30,14 +30,13 @@ import { UserService } from "src/app/services/User.service.client";
            this.successFlag = true;
            this.userService.updateUser(this.User);
          } else{
-           const User = this.userService.findUserByUserName(this.User.UserName);
-           //console.log(User);
+           const User = this.userService.findUserByUserName(this.User.UserName);           
            if(User) {
              this.userError = true; 
              this.successFlag = false;
-           } else {
+           } else { 
              this.userError = false;
-             this.successFlag = true; 
+             this.successFlag = false; 
              this.userService.updateUser(this.User);
            }
         }         

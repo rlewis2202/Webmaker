@@ -1,40 +1,40 @@
-<p>
-  four
-</p>
-       <!--navbar-->                    
-                <nav class="navbar fixed-top navbar-dark bg-primary">    
-                  <a class="color-white" routerLink="/User/{{uid}}/website"><i class="fas fa-chevron-left"></i></a>
-                    <div class="sw-90-width">
-                     <a class="navbar-brand float-left" routerLink="/User/{{uid}}/website/:uid/new"><b>Website</b></a>           
-                     <a class="color-white" routerLink="/User/{{uid}}/website"><i class="fas fa-plus"></i></a> 
-                    </div>
-                </nav> 
-            <br>            <br>       <br>
-            <!--website list--> 
-          <div class="container-fluid"> 
-            <ul class="list-group" *ngFor = "let website of websites">
+ <p>
+   four
+ </p>
+        <!--navbar-->                    
+                 <nav class="navbar fixed-top navbar-dark bg-primary">    
+                   <a class="color-white" routerLink="/User/{{uid}}/website"><i class="fas fa-chevron-left"></i></a>
+                      <div class="sw-90-width">
+                      <a class="navbar-brand float-left" routerLink="/User/{{uid}}/website/:uid/new"><b>Website</b></a>           
+                      <a class="color-white" routerLink="/User/{{uid}}/website"><i class="fas fa-plus"></i></a> 
+                     </div>
+                 </nav> 
+             <br>            <br>       <br>
+             <!--website list--> 
+           <div class="container-fluid"> 
+              <ul class="list-group" *ngFor = "let website of websites">
+                   <li class="list-group-item">
+                     <a routerLink="/User/{{uid}}/website/{{website._id}}/page">{{website.name}}</a>
+                     <a class="float-right" routerLink="/User/{{uid}}/website/{{website._id}}/new"><i class="fas fa-cog"></i></a>
+                    </li>
+                 <!-- <li class="list-group-item">
+                       <a routerLink="/User/:uid/website/:wid">Blogger</a>
+                       <a class="float-right" routerLink="/User/:uid/website/:wid"><i class="fas fa-cog"></i></a>
+                      </li>
+                   <li class="list-group-item">
+                     <a routerLink="/User/:uid/website/:wid/page">Blogger App>></a>
+                     <a class="float-right" routerLink="/User/:uid/website/:wid/page"><i class="fas fa-cog"></i></a>
+                    </li>
                   <li class="list-group-item">
-                    <a routerLink="/User/{{uid}}/website/{{website._id}}/page">{{website.name}}</a>
-                    <a class="float-right" routerLink="/User/{{uid}}/website/{{website._id}}/new"><i class="fas fa-cog"></i>
-                    </a></li>
-               <!--  <li class="list-group-item">
-                     <a routerLink="/User/:uid/website/:wid">Blogger</a>
-                     <a class="float-right" routerLink="/User/:uid/website/:wid"><i class="fas fa-cog"></i>
-                     </a></li>
-                  <li class="list-group-item">
-                    <a routerLink="/User/:uid/website/:wid/page">Blogger App>></a>
-                    <a class="float-right" routerLink="/User/:uid/website/:wid/page"><i class="fas fa-cog"></i>
-                    </a></li>
-                 <li class="list-group-item">
-                   <a routerLink="/User/:uid/website/:wid/page">Script testing App>></a>
-                   <a class="float-right" routerLink="/User/:uid/website/:wid"><i class="fas fa-cog"></i>
-                   </a></li>   -->          
-            </ul>
-           </div>      
-          <footer>
-            <nav class="navbar navbar-dark bg-primary fixed-bottom">
-              <div class="full-width">
-               <a class="color-white float-right" routerLink="/User/{{uid}}"><i class="fas fa-user"></i></a>
-              </div>
-            </nav>
-          </footer>
+                    <a routerLink="/User/:uid/website/:wid/page">Script testing App>></a>
+                    <a class="float-right" routerLink="/User/{{uid}}/website/:wid"><i class="fas fa-cog"></i></a>
+                  </li>  -->
+              </ul>       
+            </div>        
+            <footer>
+              <nav class="navbar navbar-dark bg-primary fixed-bottom">
+                <div class="full-width">
+                 <a class="color-white float-right" routerLink="/User/{{uid}}"><i class="fas fa-user"></i></a>
+                </div>
+              </nav>
+            </footer> 

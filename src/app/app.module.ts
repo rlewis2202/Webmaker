@@ -49,4 +49,4 @@ import { WidgetService } from "./services/widget.service.client";
   providers: [UserService, WebsiteService, PageService, WidgetService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

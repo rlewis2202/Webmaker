@@ -40,6 +40,6 @@ export class UserService
                   return this.User[i]; }
         }  }                       
     updateUser(User)
-    {  const oldUser = this.findUserById(User._id);
+    { const oldUser = this.findUserById(User._id);
        const index = this.User.indexOf(oldUser);
        this.User[index] = oldUser; } }

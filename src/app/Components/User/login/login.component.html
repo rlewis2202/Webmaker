@@ -1,26 +1,30 @@
 <p>
   one
-</p>
+</p> 
      <h1>Login</h1>   
       <form (ngSubmit)="login()" #myForm="ngForm">
               <div class="form-group">
-                 <input class="form-control" name="UserName" [(ngModel)]="User.UserName" type="text" placeholder="UserName...">
+                  
+                 <input class="form-control" required name="UserName"
+                  [(ngModel)]="User.UserName" type="text" placeholder="UserName...">
                   <br> 
                   <div class="alert alert-warning">Please Enter UserName</div> 
               </div>           
               <br>              
               <div class="form-group">
-                <input class="form-control" name="password" [(ngModel)]="User.password" type="password" 
+                  
+                 <input class="form-control" required name="password" [(ngModel)]="User.password" type="password" 
                  placeholder="password...">
                  <br>
+
                  <br>
                  <div class="alert alert-warning">Please Enter Password</div>
                  <br>                         
-                   <button type="submit" class="btn btn-primary btn-block">Login</button>
+                   <a routerLink="/User/:uid" class="btn btn-success btn-block">Login</a>
                    <br>                                  
-                   <a routerLink="/register" class="btn btn-success btn-block">Register</a> 
+                   <a routerLink="/register" class="btn btn-danger btn-block">Register</a> 
               </div>
-      </form>
-          
-        
+      </form> 
+           
+         
   
