@@ -8,20 +8,18 @@ import { UserService } from "src/app/services/User.service.client";
   })
     export class ProfileComponent implements OnInit {
       constructor(private activatedRoute: ActivatedRoute, private userService: UserService) {}      
-      uid: string;       
-      User: any ={
-        UserName: "",
-        password: ""
-      };    
+      uid: string;
+      User; 
+      UserName: string;
+      password: string;             
       oldUserName: string;
       userError: boolean;  
-      successFlag: boolean;              
+      successFlag: boolean;        
         ngOnInit() {
              this.activatedRoute.params.subscribe(params => {            
              this.uid = params["uid"];
              this.User = this.userService.findUserById(this.uid);
-             this.oldUserName = this.User.UserName; 
-          //console.log(this.User);
+             this.oldUserName = this.User.UserName;            
          });            
        } 
        update() {
@@ -39,5 +37,5 @@ import { UserService } from "src/app/services/User.service.client";
              this.successFlag = false; 
              this.userService.updateUser(this.User);
            }
-        }         
-       }  }
+        } }
+      } 

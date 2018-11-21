@@ -6,36 +6,37 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
-  UserName: string;
-  password: string;
-  verifyPassword: string;
-  passwordError: boolean;
-  userError: boolean;
-  verifyPasswordError: boolean;
-  constructor(private userService: UserService, private router: Router) {}  
-  ngOnInit() {
-  }
-register() {
-  if (this.password === this.verifyPassword) {
-    const User = this.userService.findUserByUserName(this.UserName);
-    if (User) {
-      this.userError = true;
-      this.passwordError = false;
-      this.verifyPasswordError = false;
-    } else {
-      const newUser = {
-        UserName: this.UserName,
-        password: this.password,
-        verifyPassword: this.verifyPassword
-      };
-       const currentUser = this.userService.createUser(newUser);
-       this.router.navigate(['User', currentUser._id]);
-    }
-  } else {
-      this.userError = true;
-      this.passwordError = true;           
-      this.verifyPasswordError = true;
-  }
+ export class RegisterComponent implements OnInit {
+    uid: string;
+    UserName: string;
+    password: string;      
+    verifyPassword: string;
+    passwordError: boolean;
+    userError: boolean;
+    verifyPasswordError: boolean;
+    constructor(private userService: UserService, private router: Router) {}  
+   ngOnInit() {
+   }
+   register() {
+     if (this.password === this.verifyPassword) {
+       const User = this.userService.findUserByUserName(this.UserName);
+     if (User) {
+       this.userError = true;
+       this.passwordError = false;
+       this.verifyPasswordError = false;
+      } else {
+        const newUser = {
+          UserName: this.UserName,
+          password: this.password,
+          verifyPassword: this.verifyPassword
+       };
+        const currentUser = this.userService.createUser(newUser);
+        this.router.navigate(['User', currentUser._id]);
+     }
+     } else {
+        this.userError = true;
+        this.passwordError = true;           
+        this.verifyPasswordError = true;
+   }
+   }
  }
-}
