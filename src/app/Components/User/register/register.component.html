@@ -1,42 +1,39 @@
- <p>
-   two 
- </p>
-  <div class="container">      
-    <h1>Register</h1>  
-    <form (ngSubmit)="register()" #myForm="ngForm">
+    <div class="container">        
+      <h1>Register</h1>  
+        <form (ngSubmit)="register()" #myForm="ngForm">
           <br>
           <br>
-          <!--<div *ngIf="userError" class="alert alert-danger">This username is taken,
-                 please try another one</div> -->
-          <!-- <div *ngIf="passwordError" class="alert alert-warning">This Username is taken 
-                 please try another one</div> -->     
+         <div *ngIf="userError" class="alert alert-danger">This username is taken,
+                 please try another one</div>
+             <div *ngIf="passwordError" class="alert alert-warning">passwords are not match</div>    
             <div class="form-group">                   
                <input class="form-control" required name="UserName" [(ngModel)]="UserName"  
                   type="text" placeholder="UserName..." #userInput="ngModel">
             </div>                 
                 <br>               
-            <!--<div *ngIf="userInput.invalid && userInput.touched" 
-                  class="alert alert-warning">UserName cannot be empty</div> -->
+            <div *ngIf="userInput.invalid && userInput.touched" 
+                  class="alert alert-warning">UserName cannot be empty</div> 
                   <br>   
-                  <!--<div *ngIf="passwordInput.invalid && passwordInput.touched" 
-                  class="alert alert-warning">Please enter your password again</div>  -->                                                                                                        
+                  <div *ngIf="passwordInput.invalid && passwordInput.touched" 
+                  class="alert alert-warning">Please enter your password again</div>                                                                                                          
               <div class="form-group">                           
                   <input class="form-control" required name="password" [(ngModel)]="password" 
                         type="password" placeholder="password" #passwordInput="ngModel">
               </div>                                           
-                  <!--<div *ngIf="passwordError" class="alert alert-danger">The two passwords do 
-                         not match, please try again</div> -->                             
+                 <div *ngIf="passwordError" class="alert alert-danger">The two passwords do 
+                         not match, please try again</div>                            
                        <br>
                   <div class="form-group">                      
                         <input class="form-control" required name="verifyPassword" [(ngModel)]="verifyPassword" 
                            type="password" placeholder="verify password" #verifyPasswordInput="ngModel">
                   </div>
-                      <!--<div *ngIf="verifyPasswordInput.invalid && verifyPasswordInput.touched" 
-                          class="alert alert-warning">Please enter your password again</div>-->                                                         
-                      <br>  
-    </form>        
-  </div>         
-                     <button type="submit" [disabled]="myForm.invalid" class="btn btn-primary btn-block">Register</button>
-                     <br>           
-                     <a routerLink="/login" class="btn btn-danger btn-block">Cancel</a>                                      
-    
+                     <div *ngIf="verifyPasswordInput.invalid && verifyPasswordInput.touched" 
+                          class="alert alert-warning">Please enter your password again</div>                                                       
+                      <br> 
+                      <button type="submit" class="btn btn-primary btn-block">Register</button>
+                      <br>           
+                      <a routerLink="/login" class="btn btn-danger btn-block">Cancel</a>                                      
+     
+        </form>        
+    </div>         
+                   

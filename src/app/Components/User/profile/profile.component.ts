@@ -40,7 +40,7 @@
                        this.successFlag = false;
                     } else { 
                      this.userError = false;
-                     this.successFlag = false; 
+                     this.successFlag = true; 
                      this.userService.updateUser(this.User);
                     }
                   } 

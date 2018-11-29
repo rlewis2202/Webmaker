@@ -19,6 +19,7 @@ export class UserService
      createUser(User: any)
     {  User._id = Math.random().toString(); 
        this.User.push(User); return User; } 
+       
      findUserById(UserId: string)
     { for (let x = 0; x < this.User.length; x++)
         { if (this.User[x]._id === UserId)

@@ -21,8 +21,8 @@ export class PageService {
               page._id = Math.random().toString();
               this.pages.push(page);
               return page;
-          }
-          findPageByWebsiteId(website_id) {
+          } 
+          findPagesByWebsiteId(website_id) {
               let result = [];
               for (let i = 0; i < this.pages.length; i++) {
                   if (this.pages[i].websiteId === website_id) {
