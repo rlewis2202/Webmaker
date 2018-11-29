@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 @Injectable() 
 export class UserService
-{ constructor() {}
+{ constructor() {}  
      User = 
    [{ 
       _id: "123", UserName: "alice", password: "alice", firstName: "Alice",
@@ -31,7 +31,7 @@ export class UserService
             (this.User[i].UserName === UserName)
             {                
               { return this.User[i];
-              }
+              }  
             }  }  }    
     findUserByCredentials(UserName: string, password: string)
     { for (let i = 0; i < this.User.length; i++) { 

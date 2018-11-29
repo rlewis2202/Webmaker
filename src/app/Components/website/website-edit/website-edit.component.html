@@ -1,44 +1,60 @@
-<p>
-  six
-</p>
-<!--navbar-->
-<nav class="navbar navbar-dark bg-primary fixed-top row nav-height">
-        <!--left nav-->
-    <div class="col-4 d-none d-sm-block">
-      <a class="color-white" routerLink="./User/:uid/website"><i class="fas fa-chevron-left"></i></a>
-      <a class="color-white padding-left" routerLink="./User/:uid/website/:wid"></a>
-    </div>
-    <!-- right nav -->            
-    <div class="col-sm-8">
-      <a class="color-white d-sm-none" routerLink="./User/:uid/website"><i class="fas fa-chevron-left"></i></a>
-      <h5 class="display-inline">Edit Website</h5>  
-      <a class="color-white float-right" routerLink="./User/:uid/website"><i class="fas fa-check"></i></a>
-    </div>
-</nav>
-<br>
-<br>
-<br> 
-    <!-- right list -->
-<div class="col-sm-8">
-    <div class="container-fluid">                   
-            <div class='form-group'><label><b>WebSite Name</b></label>
-                <input id="name" class="form-control" type="text" 
-                placeholder="name of the website" value="blogger">
-            </div>        
-    </div>
-</div>
+      <!--navbar-->
+  <nav class="navbar navbar-dark bg-primary fixed-top row nav-height">
+        <!--left nav-->          
+      <a class="color-white" routerLink="/User/{{uid}}/website"><i class="fas fa-chevron-left"></i></a>
+      <a class="color-white padding-left" routerLink="/User/{{uid}}/website/{{wid}}"></a>             
+    <!-- right nav -->               
+    <div class="color-white"><h5>Edit Website</h5></div>
+      <button class="color-white float-left btn btn-warning" form="myForm"><i class="fas fa-check"></i></button>    
+  </nav>
+  <br><br>  <br> <br>
+  <br><br><br>  
+    <!-- List & Form -->                 
+        <div class="container-fluid">
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let website of websites">
+              <a routerLink="/User/{{uid}}/website/{{wid}}/page">{{website.name}}</a>
+              <a class="float-right" routerLink="float-right" routerLink="/User/{{uid}}/website/{{wid}}"><i class="fas fa-cog"></i></a>
+            </li>
+            <li class="list-group-item">
+                <a routerLink="/User/{{uid}}/website/{{wid}}">Blogger</a>
+                <a class="float-right" routerLink="/User/{{uid}}/WebSite/{{wid}}"><i class="fas fa-cog"></i></a>
+               </li>
+            <li class="list-group-item">
+              <a routerLink="/User/{{uid}}/website/{{wid}}/page">Blogger App</a>
+              <a class="float-right" routerLink="/User/{{uid}}/website/{{wid}}/page"><i class="fas fa-cog"></i></a>
+             </li>
+           <li class="list-group-item">
+             <a routerLink="/User/{{uid}}/website/{{wid}}/page">Script testing App</a>
+             <a routerLink="/User/{{uid}}/website/{{wid}}" class="float-right"><i class="fas fa-cog"></i></a>
+           </li>
+          </ul>         
+        </div>      
+    <br>  
+    <br>
+        <!-- right Form -->
+      <div class="col-sm-8">
+        <div class="container-fluid"> 
+          <form id="myForm" #myForm="ngForm" (ngSubmit)="update">                  
+              <div class='form-group'><label><b>WebSite Name</b></label>
+                <input id="name" name="name" class="form-control" type="text" 
+                placeholder="Name of the website" [(ngModel)]="name">
+              </div>   
               <div class='form-group'>
-                <label><b>WebSite Description</b></label>
-                     <textarea id="discription" row="5" class="form-control" type= "text"
-                      placeholder="Describe your Website">Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                       Tempora excepturi ducimus quos eveniet exercitationem qui eligendi rem quasi odit aut
-                      perspiciatis iusto animi consequuntur, optio sed asperiores incidunt labore pariatur!</textarea>                                    
-              </div>                
-                <a routerLink="/User/:uid/website" class="btn btn-danger btn-block"><b>Delete</b></a> 
-                <div class="full-width">       
-                       <!--footer-->
+                <label for="description"><b>WebSite Description</b></label>
+                     <textarea id="discription" row="5" [(ngModel)]="description"
+                     name="description" class="form-control" type= "text"
+                      placeholder="Describe your Website"></textarea>                                    
+              </div> 
+                <a routerLink="/User/{{uid}}/website" class="btn btn-lg btn-warning"><b>Cancel</b></a>
+                <button type="button" class="btn btn-lg btn-danger float-right"><b>Delete</b></button>                              
+          </form>
+        </div> 
+      </div>      
+             <!--footer-->
             <footer class="navbar navbar-dark fixed-bottom bg-primary">
-              <div class="full-width"><a class="color-black float-right" 
-                routerLink="/User/:uid"><i class="fas fa-user"></i></a>
+              <div class="full-width">
+                <a class="color-black float-right" 
+                routerLink="/User/{{uid}}"><i class="fas fa-user"></i></a>
               </div>         
             </footer>

@@ -1,15 +1,33 @@
-import { Component, OnInit } from '@angular/core';
-
-@Component({
-  selector: 'app-website-new',
-  templateUrl: './website-new.component.html',
-  styleUrls: ['./website-new.component.css']
-})
-export class WebsiteNewComponent implements OnInit {
-
-  constructor() { }
-
+ import { Component, OnInit } from "@angular/core"; 
+ import { WebsiteService } from "src/app/services/website.service.client";
+ import { ActivatedRoute, Router } from "@angular/router";
+  @Component({
+  selector: "app-website-new",
+  templateUrl: "./website-new.component.html",
+  styleUrls: ["./website-new.component.css"]
+ })
+ export class WebsiteNewComponent implements OnInit {
+    websites: any[];
+    uid: string;
+    name: string;
+    description: string;
+  constructor(
+    private websiteService: WebsiteService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router 
+  ) { }
   ngOnInit() {
+    this.activatedRoute.params.subscribe(params => {
+      this.uid = params["uid"];
+      this.websites = this.websiteService.findWebsiteByUser(this.uid);       
+     });  
   }
-
-}
+    createWebsite() {
+      const website = {
+      name: this.name,
+      description: this.description,
+      developerId: this.uid      
+      };
+      this.websiteService.createWebsite(website);
+      this.router.navigate(["User", this.uid, "website"]); 
+    } }   

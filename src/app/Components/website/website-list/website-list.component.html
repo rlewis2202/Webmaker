@@ -3,34 +3,33 @@
  </p>
         <!--navbar-->                    
                  <nav class="navbar fixed-top navbar-dark bg-primary">    
-                   <a class="color-white" routerLink="/User/{{uid}}/website"><i class="fas fa-chevron-left"></i></a>
+                   <a class="color-white" routerLink="/User/{{uid}}"><i class="fas fa-chevron-left"></i></a>
                       <div class="sw-90-width">
-                      <a class="navbar-brand float-left" routerLink="/User/{{uid}}/website/:uid/new"><b>Website</b></a>           
-                      <a class="color-white" routerLink="/User/{{uid}}/website"><i class="fas fa-plus"></i></a> 
+                      <a class="navbar-brand" routerLink="/User/{{uid}}/website"><b>Websites List</b></a>           
+                      <a class="color-white float-center" routerLink="/User/{{uid}}/website/new"><i class="fas fa-plus"></i></a> 
                      </div>
-                 </nav> 
+                 </nav>     
              <br>            <br>       <br>
-             <!--website list--> 
+             <!--website list-->     
            <div class="container-fluid"> 
-              <ul class="list-group" *ngFor = "let website of websites">
-                   <li class="list-group-item">
-                     <a routerLink="/User/{{uid}}/website/{{website._id}}/page">{{website.name}}</a>
-                     <a class="float-right" routerLink="/User/{{uid}}/website/{{website._id}}/new"><i class="fas fa-cog"></i></a>
+              <ul class="list-group"> 
+                    <li class="list-group-item" *ngFor = "let website of websites">
+                      <a routerLink="/User/{{uid}}/website/{{website._id}}/page">{{website.name}}</a>
+                      <a class="float-right" routerLink="/User/{{uid}}/website/{{website._id}}/new"><i class="fas fa-cog"></i></a>
                     </li>
-                 <!-- <li class="list-group-item">
+                  <li class="list-group-item">
                        <a routerLink="/User/:uid/website/:wid">Blogger</a>
                        <a class="float-right" routerLink="/User/:uid/website/:wid"><i class="fas fa-cog"></i></a>
                       </li>
                    <li class="list-group-item">
-                     <a routerLink="/User/:uid/website/:wid/page">Blogger App>></a>
+                     <a routerLink="/User/:uid/website/:wid/page">Blogger App</a>
                      <a class="float-right" routerLink="/User/:uid/website/:wid/page"><i class="fas fa-cog"></i></a>
                     </li>
                   <li class="list-group-item">
-                    <a routerLink="/User/:uid/website/:wid/page">Script testing App>></a>
+                    <a routerLink="/User/:uid/website/:wid/page">Script testing App</a>
                     <a class="float-right" routerLink="/User/{{uid}}/website/:wid"><i class="fas fa-cog"></i></a>
-                  </li>  -->
-              </ul>       
-            </div>        
+                  </li>                </ul>       
+            </div>          
             <footer>
               <nav class="navbar navbar-dark bg-primary fixed-bottom">
                 <div class="full-width">

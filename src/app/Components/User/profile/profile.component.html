@@ -1,42 +1,49 @@
-<p>  three </p>  
-        <nav class="navbar navbar-dark bg-primary fixed-top">
-            <a routerLink="/User/{{uid}}" class="navbar-brand"><b>Profile</b></a> 
-            <a routerLink="/User/{{uid}}" class="btn bg-transparent color-white" type="submit"><i class="fas fa-check"></i></a>
-        </nav>  
-         <br><br>      
-    <div class="container"> 
-      <form> 
-          <div class="form-group">
-            <!-- <div *ngIf="userInput.invalid" class="alert alert-warning">Username can't be empty</div> -->           
-           <!-- <div *ngIf="successFlag" class="alert alert-success">Update Successfully</div> -->
-             <strong><label>UserName</label></strong>                    
-            <br>         
-            <input #userInput="ngModel" name="User.UserName" type="text"
-              [(ngModel)]="User.UserName" placeholder="Enter Username...">
-            <!--<div class="alert alert-danger">This username is taken, please try another one</div> -->           
+
+            <nav class="navbar navbar-dark bg-primary fixed-top">
+              <a class="navbar-brand" routerLink="/User/{{uid}}"><b>Profile</b></a> 
+               <button class="btn bg-transparent color-white" 
+                type="submit" form="myForm"><i class="fas fa-check"></i></button>
+            </nav>  
             <br>
-            <strong><label>Email</label></strong>          
-            <br>                   
-            <input type="email" name="email" [(ngModel)]="User.email" placeholder="Enter Email...">     
             <br>  
-            <strong><label>First Name</label></strong>             
-            <br>                   
-            <input type="text" name="firstName" [(ngModel)]="User.firstName"  placeholder="First Name..." > 
-            <br>         
-             <strong><label>Last Name</label></strong> 
-             <br>
-            <input type="text" name="lastName" [(ngModel)]="User.lastName"  placeholder="Enter Last Name...">   
-            <br>
-            <br>
-            <br>
-              <a routerLink="/User/{{uid}}/website" class="btn btn-primary btn-block">Websites</a> 
-              <a routerLink="/login" class="btn btn-danger btn-block">Logout</a> 
-          </div>
-       </form>  
-    </div>         
-      <footer>
-        <nav class="navbar navbar-dark bg-primary fixed-bottom full-width" >        
-           <a routerLink="/User/{{uid}}" class="color-white float-right"><i class="fas fa-user"></i></a>
-        </nav> 
-      </footer> 
-     <!-- #myForm="ngForm" (ngSubmit)="update()" id="myForm"> -->
+             <br>              
+              <div class="container"> 
+                <form #myForm="ngForm" (ngSubmit)="update()" id="myForm">
+                    <div *ngIf="userError" class="alert alert-danger">This UserName is taken, please try another one.</div> 
+                    <div *ngIf="successFlag" class="alert alert-success">Update Successfully</div>
+                    <br>
+                    <br> <!-- UserName -->
+                      <div class="form-group">                    
+                        <strong><label>UserName</label></strong>
+                          <br>                                                     
+                         <input #userInput="ngModel" name="UserName" type="text"
+                         [(ngModel)]="UserName" placeholder="Enter Username...">
+                      </div>
+                       <div *ngIf="userInput.invalid" class="alert alert-warning">Username can't be empty</div>
+                         <br>                                              
+                         <strong><label>Email</label></strong>
+                         <br>                                         
+                         <input type="email" name="email" [(ngModel)]="email" placeholder="Enter Email...">     
+                          <br>  
+                          <strong><label>First Name</label></strong>             
+                          <br>                   
+                          <input type="text" name="firstName" [(ngModel)]="firstName"  placeholder="Enter First Name" > 
+                           <br>         
+                          <strong><label>Last Name</label></strong> 
+                          <br>
+                          <input type="text" name="lastName" [(ngModel)]="lastName"  placeholder="Enter Last Name">   
+                          <br>
+                          <br>     
+                          <br>
+                       <a routerLink="/User/{{uid}}/website" class="btn btn-primary btn-block">Websites</a> 
+                       <a routerLink="/login" class="btn btn-danger btn-block">Logout</a>                   
+                </form>  
+            </div>         
+            <footer>                
+                <nav class="navbar navbar-dark bg-primary fixed-bottom full-width">
+                  <form #myForm="ngForm" (ngSubmit)="update()" id="myForm">                                                                          >        
+                     <a routerLink="/User/{{uid}}" class="color-white float-right"><i class="fas fa-user"></i></a>
+                  </form>
+                </nav> 
+            </footer> 
+     

@@ -6,7 +6,7 @@ import { createUrlResolverWithoutPackagePrefix } from "@angular/compiler";
 // Injectable service to Module
 @Injectable() 
 export class PageService {
-    constructor() {} 
+    constructor() {}      
     
     pages =    [
 
