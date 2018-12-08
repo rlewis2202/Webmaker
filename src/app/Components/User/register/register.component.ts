@@ -1,15 +1,18 @@
   import { Component, OnInit } from "@angular/core";
-  import { UserService } from "src/app/services/User.service.client";
+  import { UserService } from "../../../services/User.service.client";
   import { Router } from "@angular/router";
+import { stringify } from '@angular/core/src/util';
+import { User } from "../../../models/User.model.client"
   @Component({
     selector: "app-register",
     templateUrl: "./register.component.html",
     styleUrls: ["./register.component.css"]
    })
    export class RegisterComponent implements OnInit {
+     User: string;
      uid: string;
      UserName: string;
-     password: string;        
+     password: string;         
      verifyPassword: string;
     passwordError: boolean;
      userError: boolean;
@@ -25,12 +28,16 @@
           this.passwordError = false;
           this.verifyPasswordError = true;
         } else {
-          const newUser = {  
+          const newUser: User = {  
             UserName: this.UserName,
             password: this.password,
-            verifyPassword: this.verifyPassword 
+            firstName: "",
+            lastName: "",
+            email: "",
+
+            //verifyPassword: this.verifyPassword 
           };         
-          const currentUser = this.userService.createUser(newUser);
+          const currentUser: User = this.userService.createUser(newUser);
           this.router.navigate(['User', currentUser._id]);        
         }
       } else  {   

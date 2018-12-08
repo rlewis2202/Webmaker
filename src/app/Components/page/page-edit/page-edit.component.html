@@ -1,33 +1,34 @@
-<p>
-  nine
-</p>
        <!--navbar-->
         <nav class="navbar navbar-light fixed-top bg light">
-          <a class="color-black" routerLink="/User/:uid/website/:wid/page"><i class="fas fa-chevron-left"></i></a> 
-          <a class="navbar-brand" routerLink="/User/:uidwebsite/:wid/page/new">Edit Page</a>
-          <a class="color-black" routerLink="/User/:uid/website/:wid/page"><i class="fas fa-check"></i></a> 
+          <a class="color-black" routerLink="/User/{{uid}}/website/{{wid}}/page"><i class="fas fa-chevron-left"></i></a> 
+          <a class="navbar-brand" routerLink="/User/{{uid}}/website/{{wid}}/page/new">Edit Page</a>
+          <button form="myForm" type="submit" class="color-black btn bg-transparent"><i class="fas fa-check"></i></button> 
         </nav>
-        <br>
-        <br>
+        <br>   
+        <br>      
          <!--form-->
         <div class="container">
-            <form>
-                <div>
-                   <label for="name"><b>Name</b></label><input class="form-control" id="name" type="text"
-                   placeholder="name of the page..." value="blog post">  
+            <form id="myForm" #myForm="ngForm" (ngSubmit)="update">
+                <div class="form-group">
+                   <label form="name"><b>Name</b></label>
+                   <input class="form-control" id="name" type="text" required name="name" 
+                   [(ngModel)]="page.name" placeholder="name of the page..." >                   
                 </div>
                 <div class="form-group">
-                   <label for="title"><b>Title</b></label>
-                   <input class="form-control" type="text page..." value="Page title">
+                   <label form="title"><b>Title</b></label>
+                   <input class="form-control" id="name" type="text" placeholder="lorem"
+                   name="title" [(ngModel)]="page.title">
                 </div>
-                  <a routerLink="/User/:uid/website/:wid/page" class="btn btn-lg btn-warning">Delete</a>
-                  <a routerLink="/User/:uid/website/:wid/page" class="btn btn-lg btn-danger float-right">Submit</a>         
+                  <button type="button" (click)="Delete" 
+                    class="btn btn-lg btn-warning">Delete</button>
+                  <a routerLink="/User/{{uid}}/website/{{wid}}/page" 
+                    class="btn btn-lg btn-danger float-right">Cancel</a> 
             </form>
         </div>
           <!--footer-->
         <footer class="navbar navbar-light fixed-bottom bg-light">
             <div class="full-width">
               <a class="color-black float-right"
-               routerLink="/User/:uid"><i class="fas fa-user"> </i></a>
+               routerLink="/User/{{uid}}"><i class="fas fa-user"> </i></a>
             </div>
         </footer>

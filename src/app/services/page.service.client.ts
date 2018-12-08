@@ -1,14 +1,14 @@
-import { Injectable } from "@angular/core";
-//import { User } from "../models/user.model.client";
-import { createUrlResolverWithoutPackagePrefix } from "@angular/compiler";
-//import { DefaultRouteReuseStrategy } from "@angular/router/src/route_reuse_strategy";
+   import { Injectable } from "@angular/core";   
+   import { Page } from "../models/page.model.client";
+   import { createUrlResolverWithoutPackagePrefix } from "@angular/compiler";
+   import { DefaultRouteReuseStrategy } from "@angular/router/src/route_reuse_strategy";
 
-// Injectable service to Module
-@Injectable() 
-export class PageService {
-    constructor() {}      
-    
-    pages =    [
+   // Injectable service to Module
+   @Injectable() 
+   export class PageService {
+
+    constructor() {} 
+        pages = [
 
             { _id: "321", name: "Post 1", websiteId: "456", title: "Lorem" },
           

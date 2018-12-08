@@ -1,10 +1,11 @@
- import { Injectable } from '@angular/core';
+ import { Injectable } from "@angular/core";
  import { WebsiteEditComponent } from "../Components/website/website-edit/website-edit.component";
+import { Website } from "../models/website.model.client";
   //injecting service into module
  @Injectable()
     export class WebsiteService {  
     constructor() {}
-    website = [
+    website: Website[] = [
     { _id: "123", name: "Facebook", developerId: "456", description: "Lorem" }, 
     { _id: "234", name: "Tweeter", developerId: "456", description: "Lorem" },  
     { _id: "456", name: "Gizmodo", developerId: "456", description: "Lorem" },  
@@ -33,10 +34,10 @@
   updateWebsite(websiteId)  {
       const oldWeb = this.findWebsiteById(websiteId);
       const index = this.website.indexOf(oldWeb);
-      this.website[index] = websiteId;
+    //   this.website = websiteId;
   }
   deleteWebsite(websiteId) {
-      const website = this.findWebsiteById(websiteId);
+      const website: Website = this.findWebsiteById(websiteId);
       const index = this.website.indexOf(website);
       this.website.splice(index, 1) 
   }

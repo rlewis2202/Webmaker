@@ -1,8 +1,9 @@
 import { Injectable } from "@angular/core";
+import { User } from "../models/user.model.client";
 @Injectable() 
 export class UserService
 { constructor() {}  
-     User = 
+     Users: User[] = 
    [{ 
       _id: "123", UserName: "alice", password: "alice", firstName: "Alice",
         lastName: "Wonder", email: "alice@gmail.com"
@@ -16,31 +17,31 @@ export class UserService
     { _id: "456", UserName: "shiyu", password: "shiyu", firstName: "Shiyu",
         lastName: "Wang", email: "swang@ulem.org"
     }];
-     createUser(User: any)
+     createUser(User)
     {  User._id = Math.random().toString(); 
-       this.User.push(User); return User; } 
+       this.Users.push(User); return User; } 
        
-     findUserById(UserId: string)
-    { for (let x = 0; x < this.User.length; x++)
-        { if (this.User[x]._id === UserId)
-           { return this.User[x]; }
-        }
+     findUserById(UserId)
+    { for (let x = 0; x < this.Users.length; x++)
+        { if (this.Users[x]._id === UserId)
+           { return this.Users[x]; }
+        } 
     }
-     findUserByUserName(UserName: string)
-    { for (let i = 0; i <this.User.length; i++) 
+     findUserByUserName(UserName)
+    { for (let i = 0; i <this.Users.length; i++) 
         { if
-            (this.User[i].UserName === UserName)
+            (this.Users[i].UserName === UserName)
             {                
-              { return this.User[i];
+              { return this.Users[i];
               }  
             }  }  }    
-    findUserByCredentials(UserName: string, password: string)
-    { for (let i = 0; i < this.User.length; i++) { 
-        if (this.User[i].UserName === UserName &&
-              this.User[i].password === password) { 
-                  return this.User[i]; }
+    findUserByCredentials(UserName, password)
+    { for (let i = 0; i < this.Users.length; i++) { 
+        if (this.Users[i].UserName === UserName &&
+              this.Users[i].password === password) { 
+                  return this.Users[i]; }
         }  }                       
     updateUser(User)
     { const oldUser = this.findUserById(User._id);
-       const index = this.User.indexOf(oldUser);
-       this.User[index] = oldUser; } }
+       const index = this.Users.indexOf(oldUser);
+       this.Users[index] = oldUser; } }

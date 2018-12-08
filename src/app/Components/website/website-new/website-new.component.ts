@@ -1,6 +1,7 @@
  import { Component, OnInit } from "@angular/core"; 
- import { WebsiteService } from "src/app/services/website.service.client";
+ import { WebsiteService } from "../../../services/website.service.client";
  import { ActivatedRoute, Router } from "@angular/router";
+ import { Website } from 'src/app/models/website.model.client';
   @Component({
   selector: "app-website-new",
   templateUrl: "./website-new.component.html",
@@ -9,6 +10,7 @@
  export class WebsiteNewComponent implements OnInit {
     websites: any[];
     uid: string;
+    wid: string;
     name: string;
     description: string;
   constructor(
@@ -19,6 +21,7 @@
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.uid = params["uid"];
+      this.wid = params["wid"];
       this.websites = this.websiteService.findWebsiteByUser(this.uid);       
      });  
   }
@@ -28,6 +31,6 @@
       description: this.description,
       developerId: this.uid      
       };
-      this.websiteService.createWebsite(website);
+      this.websiteService.createWebsite(Website);
       this.router.navigate(["User", this.uid, "website"]); 
     } }   

@@ -104,6 +104,9 @@ h1{
              border-bottom: dotted 1px #333;
              list-style-image: url('/images/check.png');
          }
+         .center {
+             text-align: center;
+         }
          .my-form {
              padding: 20px;            
          }
@@ -149,3 +152,13 @@ h1{
          .bg-transparent{
              background: transparent;
          }
+         .absolute-right {
+            float: right; 
+            padding: 10px;           
+            border-right-width: 20px;
+         }
+         .pointer {
+            cursor: pointer;    
+         }
+         
+         

@@ -9,33 +9,32 @@
              <br>              
               <div class="container"> 
                 <form #myForm="ngForm" (ngSubmit)="update()" id="myForm">
-                    <div *ngIf="userError" class="alert alert-danger">This UserName is taken, please try another one.</div> 
-                    <div *ngIf="successFlag" class="alert alert-success">Update Successfully</div>
+                    <!--<div *ngIf="userError" class="alert alert-danger">This UserName is taken, please try another one.</div> -->
+                    <!--<div *ngIf="successFlag" class="alert alert-success">Update Successfully</div> -->
                     <br>
                     <br> <!-- UserName -->
                       <div class="form-group">                    
-                        <strong><label>UserName</label></strong>
-                          <br>                                                     
-                         <input #userInput="ngModel" name="UserName" type="text"
-                         [(ngModel)]="UserName" placeholder="Enter Username...">
+                         <label><b>UserName</b></label>                                                                              
+                         <input required class="form-control" name="UserName" type="text"
+                         [(ngModel)]="User.UserName" placeholder="Enter Username...">
                       </div>
-                       <div *ngIf="userInput.invalid" class="alert alert-warning">Username can't be empty</div>
-                         <br>                                              
-                         <strong><label>Email</label></strong>
-                         <br>                                         
-                         <input type="email" name="email" [(ngModel)]="email" placeholder="Enter Email...">     
-                          <br>  
-                          <strong><label>First Name</label></strong>             
-                          <br>                   
-                          <input type="text" name="firstName" [(ngModel)]="firstName"  placeholder="Enter First Name" > 
-                           <br>         
-                          <strong><label>Last Name</label></strong> 
+                      <!-- <div *ngIf="userInput.invalid" class="alert alert-warning">Username can't be empty</div> -->
+                        <div>                                              
+                           <label><b>Email</b></label>                                                                                            
+                           <input required class="form-control" type="email" name="email" [(ngModel)]="User.email" placeholder="Enter Email...">     
+                        </div> 
+                        <div>
+                          <label><b>First Name</b></label>                                                                     
+                          <input required class="form-control" type="text" name="firstName" [(ngModel)]="User.firstName"  placeholder="Enter First Name" > 
+                        </div>
+                        <div>        
+                          <label><b>Last Name</b></label>                                                    
+                          <input required class="form-control" type="text" name="lastName" [(ngModel)]="User.lastName"  placeholder="Enter Last Name"> 
+                        </div>  
                           <br>
-                          <input type="text" name="lastName" [(ngModel)]="lastName"  placeholder="Enter Last Name">   
+                          <br>         
                           <br>
-                          <br>       
-                          <br>
-                       <a routerLink="/User/{{uid}}/website" class="btn btn-primary btn-block">Websites</a> 
+                       <a routerLink="/User/{{uid}}/website/{{uid}}/page" class="btn btn-primary btn-block">Websites</a> 
                        <a routerLink="/login" class="btn btn-danger btn-block">Logout</a>                   
                 </form>  
             </div>         
