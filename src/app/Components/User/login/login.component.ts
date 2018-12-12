@@ -2,28 +2,34 @@
        import { UserService } from "../../../services/User.service.client";
        import { Router } from "@angular/router";
        import { User } from "../../../models/User.model.client";
-         @Component ({
+          
+         @Component ({  
              selector: "app-login",
              templateUrl: "./login.component.html",
              styleUrls: ["./login.component.css"]
              })   
            export class LoginComponent implements OnInit { 
              User: User;           
-             UserName: "";
+             UserName: "";   
              password: ""; 
              Users: "";
              _id: string;
              firstName: string;
-             lastName: string;            
+             lastName: string;    
+             errorFlag: boolean;        
                   
            constructor(private UserService: UserService, private router: Router) {}
            ngOnInit() {}
-            login() {
-            const User: User = this.UserService.findUserByCredentials(this.UserName, this.password);
-             if (User) {
-            this.router.navigate(["User", User._id]);  //"User/:_id" + User._id
-          } 
-           //console.log(User);   
-        }
-        
-      };
+            login() {  
+             
+                this.UserService.findUserByCredentials
+               (this.UserName, this.password).subscribe(                
+               (User: User) => {
+                this.router.navigate(["User", User._id]);
+               },
+               (error: any) => {
+                 this.errorFlag = true;
+               }
+           );                                           
+        }        
+    }

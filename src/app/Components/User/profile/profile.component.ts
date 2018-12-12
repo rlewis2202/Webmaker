@@ -28,14 +28,14 @@
               });            
             } 
           update()
-              {
+              { 
                if (this.User.UserName === this.oldUserName) {
                  this.userError = false;
                  this.successFlag = true;
                  this.userService.updateUser(this.User);   
                  } else{
-                    const User: User = this.userService.findUserByUserName(this.User.UserName);
-                    console.log(User);                               
+                    this.userService.findUserByUserName(this.User.UserName);
+                   // console.log(User);                               
                     if (User) {
                        this.userError = true; 
                        this.successFlag = false;
