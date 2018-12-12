@@ -21,12 +21,15 @@
       ngOnInit() {
          this.activatedRoute.params.subscribe(
           (params) => {
-                 this.uid = params["uid"];
-                 this.wid = params["wid"];                 
-              this.websites = this.websiteService.findWebsiteByUser(this.uid);
-              this.Website = this.websiteService.findWebsiteById(this.wid);              
-             //   console.log(this.websites)
-           });
+              this.uid = params["uid"];
+              this.wid = params["wid"]; 
+              this.websiteService.findWebsiteById(this.wid);              
+              this.websiteService.findWebsiteByUser(this.uid)
+              .subscribe((websites: Website[]) => {
+                this.websites = websites;
+              }
+              );
+             });
            //console.log(this.websites);
         }  
     }     
