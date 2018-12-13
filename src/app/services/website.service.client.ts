@@ -37,7 +37,7 @@
           );
    }    
   updateWebsite(website: Website)  { 
-    const url = "api/website";
+    const url = this.baseUrl + "api/website";
     return this.http.put(url, Website).pipe
         (map((res: Response) => {
             return res.json();
@@ -45,7 +45,7 @@
           );
   }
   deleteWebsite(websiteId: string) {
-    const url = "api/website/" + websiteId;
+    const url = this.baseUrl + "api/website/" + websiteId;
     return this.http.delete(url, this.website).pipe
         (map((res: Response) => {
             return res.json();

@@ -15,7 +15,7 @@
     website: Website;
     developerId: string;
     description: string;
-    constructor(    
+    constructor(      
     private websiteService: WebsiteService,
     private activatedRoute: ActivatedRoute,
     private Router: Router
@@ -24,8 +24,8 @@
     this.activatedRoute.params.subscribe(params => {
       this.uid = params["uid"];
       this.wid = params["wid"];
-      this.websites = this.websiteService.findWebsiteByUser(this.uid);
-      this.website = this.websiteService.findWebsiteById(this.wid);
+      this.websiteService.findWebsiteByUser(this.uid);
+      this.websiteService.findWebsiteById(this.wid);
     });        
     }     
     update() {
@@ -33,13 +33,20 @@
     name: this.website.name,
     description: this.website.description,
     _id: this.wid,
-    developerId: this.uid
-    //console.log("Hello from page edit");
+    developerId: this.uid    
     };    
-     this.websiteService.updateWebsite(newWeb);
-     this.Router.navigate(["User", this.uid, "website"]);
-  }
+     this.websiteService.updateWebsite(newWeb).subscribe
+     ((website: Website) => {
+      this.Router.navigate(["User", this.uid, "Website"]);
+     }
+     );
+     
+  }   
      delete() { 
-     this.websiteService.deleteWebsite(this.wid);
-     this.Router.navigate(["User", this.uid, "website"]);
+     this.websiteService.deleteWebsite(this.wid).subscribe
+     ((websites: Website[]) => {
+      this.Router.navigate(["User", this.uid, "Website"]);
+     }
+     );
+     
    } }
