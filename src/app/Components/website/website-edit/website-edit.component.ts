@@ -8,14 +8,20 @@
     styleUrls: ["./website-edit.component.css"]
      })
     export class WebsiteEditComponent implements OnInit {
-    websites: Website[];
-    uid: string; 
-    wid: string;    
-    name: string; 
+    websites: Website[] = [
+      {
+        name:"",
+        description: "",
+        _id: "",
+        developerId: "" }
+    ];
+    uid: string;
+    wid: string;
+    name: string;
     website: Website;
     developerId: string;
     description: string;
-    constructor(      
+    constructor(
     private websiteService: WebsiteService,
     private activatedRoute: ActivatedRoute,
     private Router: Router
@@ -26,27 +32,27 @@
       this.wid = params["wid"];
       this.websiteService.findWebsiteByUser(this.uid);
       this.websiteService.findWebsiteById(this.wid);
-    });        
-    }     
+    });
+    }
     update() {
     const newWeb: Website = {
     name: this.website.name,
     description: this.website.description,
     _id: this.wid,
-    developerId: this.uid    
-    };    
+    developerId: this.uid
+    };
      this.websiteService.updateWebsite(newWeb).subscribe
      ((website: Website) => {
       this.Router.navigate(["User", this.uid, "Website"]);
      }
      );
-     
-  }   
-     delete() { 
+
+  }
+     delete() {
      this.websiteService.deleteWebsite(this.wid).subscribe
      ((websites: Website[]) => {
       this.Router.navigate(["User", this.uid, "Website"]);
      }
      );
-     
+
    } }

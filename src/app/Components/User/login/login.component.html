@@ -1,27 +1,27 @@
         <Div class= "container">
-         <h1>Login</h1> 
+         <h1>Login</h1>
                   <br>
-                  <br>          
-              <form (ngSubmit)="login()" #myForm="ngForm">                  
+                  <br>
+              <form (ngSubmit)="login()" #myForm="ngForm">
                   <div class="form-group">
-                      <div *ngIf="UserInput.invalid && UserInput.touched" 
-                      class="alert alert-warning">Please Enter UserName</div>   
-                    <input class="form-control" required name="UserName" 
-                    [(ngModel)]="UserName" type="text" placeholder="UserName" #UserInput="ngModel">                    
+                     <div *ngIf="UserInput.invalid && UserInput.touched"
+                      class="alert alert-warning">Please Enter UserName</div>
+                    <input class="form-control" required name="UserName"
+                    [(ngModel)]="UserName" type="text" placeholder="UserName" #UserInput="ngModel">
                   </div>
-                    <br>                                                
-                    <br>              
-                    <div class="form-group">                  
+                    <br>
+                    <br>
+                    <div class="form-group">
                        <input class="form-control" required name="password" [(ngModel)]="password"
                          type="string" placeholder="password" #passwordInput="ngModel">
-                         <br>   
-                         <br>  
+                         <br>
+                         <br>
                     </div>
-                      <div *ngIf="UserInput.invalid && UserInput.touched"  
-                      class="alert alert-warning">Please Enter Password</div>                                      
-                      <br>                         
-                      <button  type="submit" class="btn btn-success btn-block">Login</button>
-                      <br>                                  
-                       <a routerLink="/register" class="btn btn-danger btn-block">Register</a> 
+                     <div *ngIf="UserInput.invalid && UserInput.touched"
+                      class="alert alert-warning">Please Enter Password</div>
+                      <br>
+                      <button type="submit" class="btn btn-success btn-block">Login</button>
+                      <br>
+                       <a routerLink="/register" class="btn btn-danger btn-block">Register</a>
               </form>
-        </Div>         
+        </Div>

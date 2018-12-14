@@ -2,10 +2,10 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const http = require("http");
-const path = require("path");   
-  
+const path = require("path");
+
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true}));   
+app.use(bodyParser.urlencoded({ extended: true}));
 app.use(express.static(path.join(__dirname,"dist")));
 // require is a node js keyword like "import" in typescript
 // express library, create running server. can listen to incoming request
@@ -19,15 +19,15 @@ app.use(express.static(path.join(__dirname,"dist")));
 
 // http library allows us to create http servers
 //const http = require("http");
-//const path = require("path"); 
-  
+//const path = require("path");
+
 // Initialize bodyparser. We are turn on the feature to parse json data.
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // Point static path to dist -- For building -- REMOVE
 app.use(express.static(path.join(__dirname, "dist")));
 // CORS - Cross-Origin Resource Sharing
-   
+
 // For security purposes, browser only allowed client side to request data from its own server. CORS is a mechanism that determines whether to block or fulfill requests for restricted resources on a web page from another domain outside the domain from which the resource originated.
 app.use(function(req, res, next) {
 
@@ -45,6 +45,7 @@ app.set("port", port);
 // Create HTTP server
 const server = http.createServer(app);
 require("./server/app")(app);
+
 
 // For Build: Catch all other routes and return the index file -- BUILDING
 app.get("*", function (req, res) {

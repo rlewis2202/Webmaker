@@ -15,7 +15,8 @@
              Users: "";
              _id: string;
              firstName: string;
-             lastName: string;    
+             lastName: string; 
+             error: string;   
              errorFlag: boolean;        
                   
            constructor(private UserService: UserService, private router: Router) {}
